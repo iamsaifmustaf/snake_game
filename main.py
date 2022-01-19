@@ -1,6 +1,5 @@
 from turtle import Screen, window_height
 import time
-import winsound
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
@@ -39,7 +38,6 @@ def snake_game():
 
         #Detect collision with Food
         if snake.head.distance(food) < 15:
-            winsound.PlaySound('./sounds/eat_food.wav', winsound.SND_ASYNC)
             food.new_food_location()
             snake.extend()
             scoreboard.increase_score()
@@ -59,7 +57,6 @@ def snake_game():
             if snake.head.distance(square) < 10:
                 game_is_on = False
 
-    winsound.PlaySound('./sounds/game_over.wav', winsound.SND_ASYNC)
     scoreboard.game_over()
 
     screen.mainloop()
